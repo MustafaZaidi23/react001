@@ -32,16 +32,15 @@ jobs:
       - uses: borales/actions-yarn@v2.0.0
         with:
           cmd: install
-      
-      # Build React app with yarn
-        - name: Build React App
-          run: yarn build
-      
-      # Install surge
-        - name: install surge
-          run: npm install --global surge
-          
+
+      # Build React App on Yarn
+      - name: Build React App
+        run: yarn build
+
+      # Install Surge
+      - name: Install surge
+        run: npm install --global surge
+
       # Deploy Surge
-        - name: Deploy React App on Surge
-          run: surge ./build ossified-shape.surge.sh --token ${{secrets.react001_SurgeToken}}
-        
+      - name: Deploy React App on Surge
+        run: surge ./build ossified-shape.surge.sh --token ${{secrets.react001_SurgeToken}}
